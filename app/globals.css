@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Yanone+Kaffeesatz&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: static;
+}
+
+.grid-custom {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: space-between;
+  grid-gap: 8px;
+  row-gap: 16px;
+}
+
+.bar-custom::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  background: #000;
+  opacity: 0.7;
+  transition: width 0.5s ease-in-out;
+}
+
+.bar-custom:hover::after {
+  width: 100%;
+  animation: showbar 0.2s ease-out;
+}
+
+.submenu-custom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+}
+
+.animation-custom {
+  animation: slideIn .8s ease-out;
+}
+
+.slide-custom {
+  animation: slideDown .6s ease-out;
+}
+
+.shadow-custom {
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.pulse-custom:hover {
+  animation: pulse 1.5s linear;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes showbar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes slideDown {
+  from{
+    transform: translateY(-300px)
+  }
+  to {
+    transform: translateY(0px)
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(.9);
+  }
+  70% {
+    transform: scale(1);
+  }
+    100% {
+    transform: scale(.9);
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 560px) {
+  .grid-custom {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+  }
+
+  .image-custom {
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .image-custom {
+    height: 200px;
+  }
+}
+
