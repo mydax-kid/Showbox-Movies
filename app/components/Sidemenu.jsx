@@ -14,12 +14,12 @@ const Sidemenu = () => {
         if (initialRenderRef.current == true) {
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 1024 ) {
-                    setShowSideMenu(false)
+                    handleCloseSideMenu()
                 }
             })
             initialRenderRef.current = false
         } else {
-            setShowSideMenu(false)
+            handleCloseSideMenu()
         }
     }, [pathname])
 
